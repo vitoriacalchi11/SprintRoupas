@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Roupa.Models.Fornecedor>
+
+@{
+    ViewData["Title"] = "Fornecedores";
+}
+
+<h1 class="mb-4 mt-4">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar novo fornecedor</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cnpj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cnpj)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary m-1" asp-route-id="@item.FornecedorId">Editar</a>
+                <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.FornecedorId">Detalhes</a>
+                <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.FornecedorId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

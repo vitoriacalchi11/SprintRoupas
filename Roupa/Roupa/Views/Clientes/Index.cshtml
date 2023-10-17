@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Roupa.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1 class="mb-4 mt-4">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar novo cliente</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNasc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNasc)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-primary m-1" asp-route-id="@item.ClienteId">Editar</a>
+                    <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.ClienteId">Detalhes</a>
+                    <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.ClienteId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

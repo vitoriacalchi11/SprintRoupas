@@ -1,0 +1,41 @@
+﻿@model Roupa.Models.Compra
+
+@{
+    ViewData["Title"] = "Deletar Compra";
+}
+<h4 class="mt-2">@ViewData["Title"]</h4>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CadastroDeCompras)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CadastroDeCompras.NotaCompra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Produto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Produto.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecoUnitario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecoUnitario)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CompraId" />
+        <input type="submit" value="Delete" class="btn btn-outline-danger m-1" />
+        <a class="btn btn-outline-secondary m-1" asp-action="Index">Voltar</a>
+    </form>
+</div>

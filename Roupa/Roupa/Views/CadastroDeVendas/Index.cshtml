@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Roupa.Models.CadastroDeVendas>
+
+@{
+    ViewData["Title"] = "Cadastro de Vendas";
+}
+
+<h1 class="mb-4 mt-4">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar novo cadastro</a>
+</p>
+<div class="w-50">
+    <form method="post" class="d-flex" role="search">
+        <input name="inFiltro" class="fom-control me-2" type="search" aria-label="Search">
+        <button class="btn btn-outline-success" asp-controller="CadastroDeVendas" asp-action="FilterVenda">Filtrar</button>
+    </form>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NotaVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotaVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-primary m-1" asp-route-id="@item.CadastroDeVendasId">Editar</a>
+                    <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.CadastroDeVendasId">Detalhes</a>
+                    <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.CadastroDeVendasId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

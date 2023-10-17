@@ -1,0 +1,37 @@
+﻿@model Roupa.Models.CadastroDeCompras
+
+@{
+    ViewData["Title"] = "Editar Cadastro";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CadastroDeComprasId" />
+            <div class="form-group mb-2 mt-2">
+                <label asp-for="NotaCompra" class="control-label"></label>
+                <input asp-for="NotaCompra" class="form-control" />
+                <span asp-validation-for="NotaCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 mt-2">
+                <label asp-for="DataHora" class="control-label"></label>
+                <input asp-for="DataHora" class="form-control" />
+                <span asp-validation-for="DataHora" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2 mt-2">
+                <label asp-for="FornecedorId" class="control-label"></label>
+                <select asp-for="FornecedorId" class="form-control" asp-items="ViewBag.FornecedorId"></select>
+                <span asp-validation-for="FornecedorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-outline-primary m-1" />
+                <a class="btn btn-outline-secondary m-1" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

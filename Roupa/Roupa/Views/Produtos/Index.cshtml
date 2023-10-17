@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Roupa.Models.Produto>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1 class="mb-4 mt-4">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar novo fornecedor</a>
+</p>
+<div class="w-50">
+    <form method="post" class="d-flex" role="search">
+        <input name="inFiltro" class="fom-control me-2" type="search" aria-label="Search">
+        <button class="btn btn-outline-success" asp-controller="Produtos" asp-action="Filter">Filtrar</button>
+    </form>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedor.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-primary m-1" asp-route-id="@item.ProdutoId">Editar</a>
+                    <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.ProdutoId">Detalhes</a>
+                    <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.ProdutoId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

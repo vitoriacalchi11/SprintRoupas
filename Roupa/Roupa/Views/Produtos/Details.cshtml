@@ -1,0 +1,46 @@
+﻿@model Roupa.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes Produtos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mb-4 mt-4">
+    <dl class="row">
+        <dt class = "col-sm-2 text-dark">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2 text-dark">
+            @Html.DisplayNameFor(model => model.Estoque)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estoque)
+        </dd>
+        <dt class = "col-sm-2 text-dark">
+            @Html.DisplayNameFor(model => model.PrecoUnitario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecoUnitario)
+        </dd>
+        <dt class = "col-sm-2 text-dark">
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categoria.Nome)
+        </dd>
+        <dt class="col-sm-2 text-dark">
+            @Html.DisplayNameFor(model => model.Fornecedor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fornecedor.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-outline-primary m-1" asp-route-id="@Model?.ProdutoId">Editar</a>
+    <a asp-action="Index" class="btn btn-outline-secondary m-1">Voltar</a>
+</div>

@@ -1,0 +1,35 @@
+﻿@model Roupa.Models.CadastroDeCompras
+
+@{
+    ViewData["Title"] = "Deletar Cadastro";
+}
+<h4 class="mt-2">@ViewData["Title"]</h4>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NotaCompra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NotaCompra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataHora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fornecedor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fornecedor.Nome)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CadastroDeComprasId" />
+        <input type="submit" value="Delete" class="btn btn-outline-danger m-1" />
+        <a class="btn btn-outline-secondary m-1" asp-action="Index">Voltar</a>
+    </form>
+</div>

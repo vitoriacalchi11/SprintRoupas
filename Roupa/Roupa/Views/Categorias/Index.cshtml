@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Roupa.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1 class="mb-4 mt-4">@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-action="Create">Criar nova categoria</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary m-1" asp-route-id="@item.CategoriaId">Editar</a>
+                <a asp-action="Details" class="btn btn-secondary m-1" asp-route-id="@item.CategoriaId">Detalhes</a>
+                <a asp-action="Delete" class="btn btn-danger m-1" asp-route-id="@item.CategoriaId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
